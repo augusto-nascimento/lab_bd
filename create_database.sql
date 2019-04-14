@@ -98,7 +98,7 @@ create table if not exists Titulacao (
 
 Insert into Predio
 values
-(43423,'Informï¿½tica - aulas'),
+(43423,'Informática - aulas'),
 (43529,'Polimeros - aulas'),
 (43981,'Comex - aulas');
 
