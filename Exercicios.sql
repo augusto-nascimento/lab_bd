@@ -3,16 +3,36 @@
 
 -- 1.Obter os códigos dos diferentes departamentos que tem turmas no ano-semestre 2002/1
 select distinct CodDepto
-from lab_db.turma
+from turma
 where AnoSem = 20021
 
 -- 2.Obter os códigos dos professores que são do departamento de código 'INF01' e que ministraram ao menos uma turma em 2002/1.
 select distinct CodProf
-from lab_db.profturma
+from profturma
 where CodDepto = 'INF01' and AnoSem = 20021
 
-
 -- 3.Obter os horários de aula (dia da semana,hora inicial e número de horas ministradas) do professor "Antunes" em 20021.
+select h.DiaSem, h.HoraInicio, h.NumHoras
+from horario h
+inner join (
+	select AnoSem, CodDepto, NumDisc, SiglaTur
+	from profturma
+	where CodProf in (
+		select CodProf
+		from lab_db.professor
+		where NomeProf = 'Antunes'
+	)
+	and AnoSem = 20021
+) q
+on 
+	h.AnoSem = q.AnoSem 
+	and h.CodDepto = q.CodDepto
+	and h.NumDisc = q.NumDisc
+	and h.SiglaTur = q.SiglaTur
+
+	
+
+
 -- 4.Obter os nomes dos departamentos que têm turmas que, em 2002/1, têm aulas na sala 101 do prédio denominado 'Informática - aulas'.
 -- 5.Obter os códigos dos professores com título denominado 'Doutor' que não ministraram aulas em 2002/1.
 -- 6.Obter os identificadores das salas (código do prédio e número da sala) que, em 2002/1:
