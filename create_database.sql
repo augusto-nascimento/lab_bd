@@ -118,5 +118,7 @@ alter table ProfTurma add primary key (AnoSem, CodDepto, NumDisc, SiglaTur, CodP
 
 alter table Horario add foreign key (AnoSem, CodDepto, NumDisc, SiglaTur) references Turma(AnoSem, CodDepto, NumDisc, SiglaTur);
 alter table Horario add foreign key (CodPred, NumSala) references Sala(CodPred, NumSala);
+alter table Horario add primary key (AnoSem, CodDepto, NumDisc, SiglaTur, DiaSem, HoraInicio)
+
 
 SET FOREIGN_KEY_CHECKS=1;
