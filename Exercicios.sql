@@ -6,9 +6,12 @@ select distinct CodDepto
 from lab_db.turma
 where AnoSem = 20021
 
-
-
 -- 2.Obter os códigos dos professores que são do departamento de código 'INF01' e que ministraram ao menos uma turma em 2002/1.
+select distinct CodProf
+from lab_db.profturma
+where CodDepto = 'INF01' and AnoSem = 20021
+
+
 -- 3.Obter os horários de aula (dia da semana,hora inicial e número de horas ministradas) do professor "Antunes" em 20021.
 -- 4.Obter os nomes dos departamentos que têm turmas que, em 2002/1, têm aulas na sala 101 do prédio denominado 'Informática - aulas'.
 -- 5.Obter os códigos dos professores com título denominado 'Doutor' que não ministraram aulas em 2002/1.
