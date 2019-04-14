@@ -30,10 +30,26 @@ on
 	and h.NumDisc = q.NumDisc
 	and h.SiglaTur = q.SiglaTur
 
+-- 4.Obter os nomes dos departamentos que têm turmas que, em 2002/1, têm aulas na sala 101 do prédio denominado 'Informática - aulas'.
+
+select NomeDepto
+from depto
+where CodDepto in (
+	select distinct CodDepto
+	from horario
+	where 
+		CodPred in (
+			select CodPred
+			from predio
+			where NomePred = 'Informática - aulas'
+		)
+		and NumSala = 101
+)
+
+	
 	
 
-
--- 4.Obter os nomes dos departamentos que têm turmas que, em 2002/1, têm aulas na sala 101 do prédio denominado 'Informática - aulas'.
+	
 -- 5.Obter os códigos dos professores com título denominado 'Doutor' que não ministraram aulas em 2002/1.
 -- 6.Obter os identificadores das salas (código do prédio e número da sala) que, em 2002/1:
     -- nas segundas-feiras (dia da semana = 2), tiveram ao menos uma turma do departamento 'Informática', e
