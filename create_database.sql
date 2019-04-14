@@ -157,7 +157,8 @@ values
 (6,'COM01',3,'Mario'),
 (7,'POL01',1,'Joao'),
 (8,'POL01',2,'Marcelo'),
-(9,'POL01',3,'Manoel');
+(9,'POL01',3,'Manoel'),
+(10,'POL01',1,'Maria');
 
 Insert into Turma
 values
