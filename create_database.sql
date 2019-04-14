@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS lab_db;
+
 use lab_db;
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -18,7 +20,7 @@ create table if not exists PreReq (
 	CodDeptoPreReq char(5),
     NumDiscPreReq int,
     CodDepto char(5),
-    NumDisc int4
+    NumDisc int
 );
 
 
@@ -118,7 +120,7 @@ alter table ProfTurma add primary key (AnoSem, CodDepto, NumDisc, SiglaTur, CodP
 
 alter table Horario add foreign key (AnoSem, CodDepto, NumDisc, SiglaTur) references Turma(AnoSem, CodDepto, NumDisc, SiglaTur);
 alter table Horario add foreign key (CodPred, NumSala) references Sala(CodPred, NumSala);
-alter table Horario add primary key (AnoSem, CodDepto, NumDisc, SiglaTur, DiaSem, HoraInicio)
+alter table Horario add primary key (AnoSem, CodDepto, NumDisc, SiglaTur, DiaSem, HoraInicio);
 
 
 SET FOREIGN_KEY_CHECKS=1;
